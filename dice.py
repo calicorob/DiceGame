@@ -97,6 +97,21 @@ class Player(object):
         """
         self.score += self.play()
         
+    def get_score(self):
+        """
+            Getter method for the Player's current score
+            
+            Args:
+                None
+                
+            Returns:
+                int, player current score
+        
+        
+        """
+        
+        return self.score
+        
     def play(self):
         """
             Player rolls die 
