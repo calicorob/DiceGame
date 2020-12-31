@@ -57,7 +57,7 @@ class Player(object):
                 None
                 
             Returns:
-                None
+                Instance of the Player class 
         
         """
         ## set the instance pid
@@ -99,7 +99,7 @@ class Player(object):
         
     def play(self):
         """
-            Player rolls die 3 times 
+            Player rolls die 
             
             Args:
                 None
@@ -177,7 +177,7 @@ class Player(object):
         
         """
         ## check that the length of the list = 3
-        assert len(rolls) == 3, "Rolled more than 3 die"
+        assert len(rolls) == 3, "Didn't roll 3 die"
         
         
         ## sorts the rolls in ascending? order (can't remember but doesn't matter)
@@ -195,21 +195,69 @@ class Player(object):
         
         
 class TurnBasedPlayer(Player):
+    """
+        Child of the Player class 
+        TurnBasedPlayer plays the Dice game based on a specified minimum number of rolls
+        E.g. If turns = 5 , player will roll the die 5 times and then accept whatever score they have received 
+    
+    """
     
     def __init__(self,turns):
+        """
+            Initialize a TurnBasedPlayer
+            
+            Args:
+                turns (int): number of turns the player will play before ending their turn
+                
+            Returns
+                Instance of the TurnBasedPlayer class
+        
+        """
+        
+        ## intialize instance variables according to parent __init__ method 
         super().__init__()
+        
+        ## number of rolls player will play before ending their turn 
         self.turns = turns
         
     
     def get_min_turns(self):
+        """
+            Getter method for the number of turns 
+            
+            Args:
+                None
+                
+            Returns:
+                int, number of rolls player will play before ending their turn
+        
+        """
         return self.turns
     
     def play(self):
+        
+        """
+            Player rolls die 
+            
+            Args:
+                None
+                
+            Returns:
+                integer, score of that turn 
+        
+       
+        """
+        
+        ## temporary score of that turn
         temp_score = 0
         
+        
+        ## get the number of turns this player will attempt 
         turns = self.get_min_turns()
+        
+        ## only difference between Player and TurnBasedPlayer is the number of rolls it attemps 
         if self.isin:
-            for turn in range(turns):
+            for turn in range(turns): ## attempt to roll the die the set number of times 
                 roll_score = self.check_score(self.rolls())
                 if roll_score == 0:
                     return 0 
@@ -227,7 +275,8 @@ class TurnBasedPlayer(Player):
                 return temp_score
             else:
                 return 0
-            
+
+## TODO comment / work on RandomTurnBasedPlayer           
 class RandomTurnBasedPlayer(TurnBasedPlayer):
     def __init__(self,max_turns_choice:int=20):
         super().__init__(None)
@@ -236,20 +285,70 @@ class RandomTurnBasedPlayer(TurnBasedPlayer):
     def get_min_turns(self):
         return random.randint(1,self.max_turns_choice)
         
+        
+        
+        
+        
 class ScoreBasedPlayer(Player):
+    """
+        Child of the Player class 
+        ScoreBasedPlayer plays the Dice game based on a specified minimum score 
+        E.g. If score = 300 , player will roll the die until they have a turn score of 300 or more 
     
+    """
     def __init__(self,min_score):
+        
+        """
+            Initialize a ScoreBasedPlayer
+            
+            Args:
+                score (int): score the player will attempt to acheive each turn before ending their turn
+                
+            Returns
+                Instance of the ScoreBasedPlayer class
+        
+        """
+        
+        ## initialize instance variables using Parent __init__method
         super().__init__()
+        
+        ## set the mininmum score the player will attempt to acheive each turn 
         self.min_score = min_score
         
     def get_min_score(self):
+        """
+            Getter method for the minimum score 
+            
+            Args:
+                None
+            
+            Returns:
+                int, minimum score player will attempt to roll each turn before ending their turn 
+        
+        """
         return self.min_score
         
     def play(self):
+        """
+            Player rolls die 
+            
+            Args:
+                None
+                
+            Returns:
+                integer, score of that turn 
+        
+       
+        """
+        
+        
+        ## set score of turn
         temp_score = 0
+        
+        ## get minimum score player will attempt to get on this turn
         min_score = self.get_min_score()
         if self.isin:
-            while temp_score < min_score:
+            while temp_score < min_score: ## continue rolling until the minimum_score or higher is acheived 
                 roll_score = self.check_score(self.rolls())
                 if roll_score == 0:
                     return 0 
@@ -268,7 +367,9 @@ class ScoreBasedPlayer(Player):
                 return temp_score
             else:
                 return 0
+
             
+## TODO stuff 
 class RandomScoreBasedPlayer(ScoreBasedPlayer):
     def __init__(self,max_score_choice:int=500):
         super().__init__(None)
