@@ -380,18 +380,67 @@ class RandomScoreBasedPlayer(ScoreBasedPlayer):
 
         
 class Game(object):
+    
+    """
+    
+        Object for playing the dice game 
+        
+    
+    """
     def __init__(self,players,final_score):
+        
+        """
+            Initializes an instance of the Game class
+            
+            Args:
+                players (list[Player]): list, containing instances of the Player class or it's children who will be playing the game 
+                final_score int: final score that must be acheived in order to win the game 
+        
+        """
+        
+        ## check that all players have not played the game, or are 'in' a game 
+        assert all(
+            
+                [not player.isin for player in players]
+            
+            
+            
+        ), "Player is already 'in' a game"
+        
+        
+        ## store players
         self.players = players
+        
+        
+        ## store the final score 
         self.final_score = final_score
+        
+        ## set the winner = nobody
         self.winner = None
+        
+        ## set the game as to not being complete 
         self.over = False
         
     def play(self):
+        """
+            Play the game 
+            
+            Args:
+                None
+            Returns:
+                None
+        
+        """
+        
+        ## TODO, add functionality where if someone reaches the final score, the other players are given 1 more turn to reach the target score 
+        
+        ## keep looping until someone reaches the set score 
         while not self.over:
+            ## loop through the players 
             for player in self.players:
-                player.turn()
-                if player.score >= self.final_score:
-                    self.winner = player
-                    self.over = True
-                    return 
+                player.turn() ## play a turn
+                if player.score >= self.final_score: ## if a player acheives the target score or higher, end the game 
+                    self.winner = player ## set the winner equal to that player 
+                    self.over = True ## set the game as over 
+                    return  ## finish 
         
