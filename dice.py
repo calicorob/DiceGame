@@ -50,7 +50,7 @@ class Player(object):
 
     ## ID number for identifying different players
     pid = 1
-    def __init__(self):
+    def __init__(self,isin=False):
         """
             Initializes a Player object
 
@@ -65,7 +65,7 @@ class Player(object):
         self.pid = Player.pid
 
         ## isin indicator indicates whether or not the player is 'in' the game or not
-        self.isin = False
+        self.isin = isin
 
         ## current score of the player
         self.score = 0
@@ -457,7 +457,7 @@ class TurnBasedPlayer(Player):
 
     """
 
-    def __init__(self,turns):
+    def __init__(self,turns,isin=False):
         """
             Initialize a TurnBasedPlayer
 
@@ -470,7 +470,7 @@ class TurnBasedPlayer(Player):
         """
 
         ## intialize instance variables according to parent __init__ method
-        super().__init__()
+        super().__init__(isin=isin)
 
         ## number of rolls player will play before ending their turn
         self.turns = turns
@@ -563,7 +563,7 @@ class ScoreBasedPlayer(Player):
         E.g. If score = 300 , player will roll the die until they have a turn score of 300 or more
 
     """
-    def __init__(self,min_score):
+    def __init__(self,min_score,isin=False):
 
         """
             Initialize a ScoreBasedPlayer
@@ -577,7 +577,7 @@ class ScoreBasedPlayer(Player):
         """
 
         ## initialize instance variables using Parent __init__method
-        super().__init__()
+        super().__init__(isin=isin)
 
         ## set the mininmum score the player will attempt to acheive each turn
         self.min_score = min_score
