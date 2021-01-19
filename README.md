@@ -7,7 +7,7 @@ This repository holds the code that was used to generate the results in the arti
 Article (draft) link: https://medium.com/@robert.art.currie/ruining-my-friends-game-through-computation-c739d69f9237 
 
 ## Directory
-## Home
+### Home
 * dice.py : custom module for the objects required to run the Dice game simulations
 * simulations.py : custom module used to run simulations of the Dice game
 * ExpectedScore.ipynb : Jupyter notebook for calculating the expected score of a turn based on the score you try and roll each turn 
@@ -15,7 +15,7 @@ Article (draft) link: https://medium.com/@robert.art.currie/ruining-my-friends-g
 * Score based - looping opponent max scores.ipynb : Jupyter notebook for running Dice game simulations varying the maximum possible threshold score of the opponents and the threshold score of the player
 * Simulation Example.ipynb : Jupyter notebook for demonstrating how simulations are done
 * Testing dice.ipynb: Jupyer notbook for testing the dice.py module 
-## [Old](/Old/)
+### [Old](/Old/)
 * Contains old development notebooks and files 
 
 
