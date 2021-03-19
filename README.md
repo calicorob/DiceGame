@@ -8,9 +8,11 @@ Article link: https://medium.com/@robert.art.currie/ruining-my-friends-game-thro
 
 ## Directory
 ### Home
+#### Modules
 * dice.py : custom module for the objects required to run the Dice game simulations
 * simulations.py : custom module used to run simulations of the Dice game
-* ExpectedScore.ipynb : Jupyter notebook for calculating the expected score of a turn based on the score you try and roll each turn 
+#### Notebooks
+* Expected Score.ipynb : Jupyter notebook for calculating the expected score of a turn based on the score you try and roll each turn 
 * Looping opponent max score.ipynb: Jupyter Notebook for producing simulation results of different game scenarios. 
 * Opponent max score analysis.ipynb: Jupyter notebook for analyzing simulation results. 
 * Simulation Example.ipynb : Jupyter notebook for demonstrating how simulations are done.
