@@ -17,6 +17,10 @@ Article link: https://medium.com/@robert.art.currie/ruining-my-friends-game-thro
 * Opponent max score analysis.ipynb: Jupyter Notebook for analyzing simulation results. 
 * Simulation Example.ipynb : Jupyter Notebook for demonstrating how simulations are done.
 * Testing dice.ipynb: Jupyer Notebook for testing the dice.py module. 
+#### Other
+* WinPctResults.csv: Simulated win percentages of player from looping opponent score threshold and player score threshold. 
+* TurnExpectedScore.png: Scatter plot of expected player score at different score thresholds.
+* OpponentThresholdSurface.png: Surface plot of simulated player win percentages at different opponent score thresholds and player score thresholds. 
 ### [Old](/Old/)
 * Contains old development Notebooks and files. 
 
