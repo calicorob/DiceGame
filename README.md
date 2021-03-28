@@ -4,7 +4,7 @@
 
 This repository holds the code that was used to generate the results in the article titled, "Ruining my friend's game through computation" on Medium.com.
 
-Article link: https://medium.com/@robert.art.currie/ruining-my-friends-game-through-computation-c739d69f9237 
+Article:[Runing My Friend's Game Through Computation](https://medium.com/@robert.art.currie/ruining-my-friends-game-through-computation-c739d69f9237)
 
 ## Directory
 ### Home
